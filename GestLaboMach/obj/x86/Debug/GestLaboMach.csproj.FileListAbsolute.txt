@@ -1,0 +1,10 @@
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\bin\Debug\GestLaboMach.exe
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\bin\Debug\GestLaboMach.pdb
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\bin\Debug\MySql.Data.DLL
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.csprojResolveAssemblyReference.cache
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.Form1.resources
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.Properties.Resources.resources
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.ResultatForm.resources
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.csproj.GenerateResource.Cache
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.exe
+E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.pdb

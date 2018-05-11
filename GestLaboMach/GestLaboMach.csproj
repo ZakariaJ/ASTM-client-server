@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B6405FE-40E8-428C-B372-BBBB44FD146D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GestLaboMach</RootNamespace>
+    <AssemblyName>GestLaboMach</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\MySql.Data.DLL</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="databases\DB.cs" />
+    <Compile Include="databases\DBParametre.cs" />
+    <Compile Include="databases\SQLConnexion.cs" />
+    <Compile Include="databases\SQL_CONTROLDATABASE_ALTER.cs" />
+    <Compile Include="databases\tables\alter_all_tables.cs" />
+    <Compile Include="databases\tables\app_dual.cs" />
+    <Compile Include="databases\tables\app_session.cs" />
+    <Compile Include="databases\tables\app_societe.cs" />
+    <Compile Include="databases\tables\app_sous_traitant.cs" />
+    <Compile Include="databases\tables\app_sys_global.cs" />
+    <Compile Include="databases\tables\app_sys_log.cs" />
+    <Compile Include="databases\tables\app_user_connexion.cs" />
+    <Compile Include="databases\tables\app_user_groups.cs" />
+    <Compile Include="databases\tables\app_user_groups_droits.cs" />
+    <Compile Include="databases\tables\app_utilisateur.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="labo\Constantes.cs" />
+    <Compile Include="labo\controle\Controle_Droits.cs" />
+    <Compile Include="labo\dao\App_dossierDAO.cs" />
+    <Compile Include="labo\dao\App_dossier_dtDAO.cs" />
+    <Compile Include="labo\modele\ActionModele.cs" />
+    <Compile Include="labo\modele\ASTMMessage.cs" />
+    <Compile Include="labo\modele\ASTMParser.cs" />
+    <Compile Include="labo\modele\SYS_LOG_Modele.cs" />
+    <Compile Include="labo\Outils\Crypter_MD5.cs" />
+    <Compile Include="labo\Outils\Fonctions_Date.cs" />
+    <Compile Include="labo\Outils\Fonctions_Numeriques.cs" />
+    <Compile Include="labo\Outils\Fonctions_String.cs" />
+    <Compile Include="labo\Outils\Jobs.cs" />
+    <Compile Include="personnalisation\PersonnaliserDATAGRIDVIEW.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultatForm.Designer.cs">
+      <DependentUpon>ResultatForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ResultatForm.resx">
+      <DependentUpon>ResultatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="databases\views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\MySql.Data.DLL" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
