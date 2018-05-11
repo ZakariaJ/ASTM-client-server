@@ -56,16 +56,6 @@
     <Compile Include="databases\SQLConnexion.cs" />
     <Compile Include="databases\SQL_CONTROLDATABASE_ALTER.cs" />
     <Compile Include="databases\tables\alter_all_tables.cs" />
-    <Compile Include="databases\tables\app_dual.cs" />
-    <Compile Include="databases\tables\app_session.cs" />
-    <Compile Include="databases\tables\app_societe.cs" />
-    <Compile Include="databases\tables\app_sous_traitant.cs" />
-    <Compile Include="databases\tables\app_sys_global.cs" />
-    <Compile Include="databases\tables\app_sys_log.cs" />
-    <Compile Include="databases\tables\app_user_connexion.cs" />
-    <Compile Include="databases\tables\app_user_groups.cs" />
-    <Compile Include="databases\tables\app_user_groups_droits.cs" />
-    <Compile Include="databases\tables\app_utilisateur.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
