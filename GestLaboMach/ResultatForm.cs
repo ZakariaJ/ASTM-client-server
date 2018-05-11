@@ -45,7 +45,10 @@ namespace GestLaboMach
                 dataGridViewDossiers.Columns["patient"].Visible = true;               
          
 
-                GestLaboMach.personnalisation.PersonnaliserDATAGRIDVIEW.personnaliser(this.dataGridViewDossiers);
+                GestLaboMach.personnalisation.PersonnaliserDATAGRIDVIEW
+                    .personnaliser(this.dataGridViewDossiers);
+
+                this.dataGridViewDossiers.Columns["patient"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             }
             catch (Exception xxxxx)

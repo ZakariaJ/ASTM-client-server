@@ -33,33 +33,33 @@
             this.dataGridViewDossiers = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageResult = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBoxDosDetail = new System.Windows.Forms.GroupBox();
+            this.dataGridViewDosDT = new System.Windows.Forms.DataGridView();
+            this.groupBoxListDossiers = new System.Windows.Forms.GroupBox();
             this.bindingNavigatorDossiers = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.bindingSourceDossiers = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBoxListDossiers = new System.Windows.Forms.GroupBox();
-            this.groupBoxDosDetail = new System.Windows.Forms.GroupBox();
-            this.dataGridViewDosDT = new System.Windows.Forms.DataGridView();
             this.bindingSourceDossiersDt = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDossiers)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageResult.SuspendLayout();
+            this.groupBoxDosDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDosDT)).BeginInit();
+            this.groupBoxListDossiers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorDossiers)).BeginInit();
             this.bindingNavigatorDossiers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDossiers)).BeginInit();
-            this.groupBoxListDossiers.SuspendLayout();
-            this.groupBoxDosDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDosDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDossiersDt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPageResult);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(4, 7);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(748, 350);
@@ -94,15 +94,33 @@
             this.tabPageResult.Text = "Résultats";
             this.tabPageResult.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // groupBoxDosDetail
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.groupBoxDosDetail.Controls.Add(this.dataGridViewDosDT);
+            this.groupBoxDosDetail.Location = new System.Drawing.Point(429, 40);
+            this.groupBoxDosDetail.Name = "groupBoxDosDetail";
+            this.groupBoxDosDetail.Size = new System.Drawing.Size(305, 278);
+            this.groupBoxDosDetail.TabIndex = 3;
+            this.groupBoxDosDetail.TabStop = false;
+            this.groupBoxDosDetail.Text = "Examens";
+            // 
+            // dataGridViewDosDT
+            // 
+            this.dataGridViewDosDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDosDT.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewDosDT.Name = "dataGridViewDosDT";
+            this.dataGridViewDosDT.Size = new System.Drawing.Size(293, 247);
+            this.dataGridViewDosDT.TabIndex = 0;
+            // 
+            // groupBoxListDossiers
+            // 
+            this.groupBoxListDossiers.Controls.Add(this.dataGridViewDossiers);
+            this.groupBoxListDossiers.Location = new System.Drawing.Point(6, 40);
+            this.groupBoxListDossiers.Name = "groupBoxListDossiers";
+            this.groupBoxListDossiers.Size = new System.Drawing.Size(415, 278);
+            this.groupBoxListDossiers.TabIndex = 2;
+            this.groupBoxListDossiers.TabStop = false;
+            this.groupBoxListDossiers.Text = "Dossiers";
             // 
             // bindingNavigatorDossiers
             // 
@@ -131,6 +149,31 @@
             this.bindingNavigatorDossiers.Size = new System.Drawing.Size(734, 25);
             this.bindingNavigatorDossiers.TabIndex = 1;
             this.bindingNavigatorDossiers.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(36, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Supprimer";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -164,16 +207,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(38, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -196,60 +232,24 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // bindingNavigatorAddNewItem
+            // tabPage2
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Supprimer";
-            // 
-            // groupBoxListDossiers
-            // 
-            this.groupBoxListDossiers.Controls.Add(this.dataGridViewDossiers);
-            this.groupBoxListDossiers.Location = new System.Drawing.Point(6, 40);
-            this.groupBoxListDossiers.Name = "groupBoxListDossiers";
-            this.groupBoxListDossiers.Size = new System.Drawing.Size(415, 278);
-            this.groupBoxListDossiers.TabIndex = 2;
-            this.groupBoxListDossiers.TabStop = false;
-            this.groupBoxListDossiers.Text = "Dossiers";
-            // 
-            // groupBoxDosDetail
-            // 
-            this.groupBoxDosDetail.Controls.Add(this.dataGridViewDosDT);
-            this.groupBoxDosDetail.Location = new System.Drawing.Point(438, 40);
-            this.groupBoxDosDetail.Name = "groupBoxDosDetail";
-            this.groupBoxDosDetail.Size = new System.Drawing.Size(296, 278);
-            this.groupBoxDosDetail.TabIndex = 3;
-            this.groupBoxDosDetail.TabStop = false;
-            this.groupBoxDosDetail.Text = "Examens";
-            // 
-            // dataGridViewDosDT
-            // 
-            this.dataGridViewDosDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDosDT.Location = new System.Drawing.Point(6, 19);
-            this.dataGridViewDosDT.Name = "dataGridViewDosDT";
-            this.dataGridViewDosDT.Size = new System.Drawing.Size(284, 247);
-            this.dataGridViewDosDT.TabIndex = 0;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(740, 324);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // ResultatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 439);
+            this.ClientSize = new System.Drawing.Size(766, 361);
             this.Controls.Add(this.tabControl1);
             this.Name = "ResultatForm";
             this.Text = "ResultatForm";
@@ -257,13 +257,13 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageResult.ResumeLayout(false);
             this.tabPageResult.PerformLayout();
+            this.groupBoxDosDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDosDT)).EndInit();
+            this.groupBoxListDossiers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorDossiers)).EndInit();
             this.bindingNavigatorDossiers.ResumeLayout(false);
             this.bindingNavigatorDossiers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDossiers)).EndInit();
-            this.groupBoxListDossiers.ResumeLayout(false);
-            this.groupBoxDosDetail.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDosDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDossiersDt)).EndInit();
             this.ResumeLayout(false);
 

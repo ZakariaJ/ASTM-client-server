@@ -478,6 +478,9 @@ namespace ASTMParser
             return manufacturerRecords.Last().parseData(recordData);
         }
 
+
+
+
         public override bool parseData(String recordData)
         {
             var recordValues = Regex.Split(recordData, "[|]");
@@ -722,6 +725,8 @@ namespace ASTMParser
                 return null;
             return fieldNames.ElementAt(idx);
         }
+
+
 
         public override String fieldValue(int idx)
         {

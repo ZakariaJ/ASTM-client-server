@@ -8,12 +8,9 @@ namespace GestLaboMach.personnalisation
 {
     class PersonnaliserDATAGRIDVIEW
     {
-
-
-
+        
         public static void personnaliser(DataGridView _dataGridView)
-        {
-           
+        {           
             personnaliser_Ligne(_dataGridView);
             personnaliser_Colonne(_dataGridView);
         }
