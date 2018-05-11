@@ -8,3 +8,14 @@ E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLabo
 E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.csproj.GenerateResource.Cache
 E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.exe
 E:\GoogleDrive\MONPC\PROJETS\Projets.NET\C#\visual studio 2010\GestLabo\GestLaboMach\GestLaboMach\obj\x86\Debug\GestLaboMach.pdb
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\obj\x86\Debug\GestLaboMach.exe
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\obj\x86\Debug\GestLaboMach.pdb
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\bin\Debug\GestLaboMach.exe.config
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\bin\Debug\GestLaboMach.exe
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\bin\Debug\GestLaboMach.pdb
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\bin\Debug\MySql.Data.DLL
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\obj\x86\Debug\GestLaboMach.csprojResolveAssemblyReference.cache
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\obj\x86\Debug\GestLaboMach.Form1.resources
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\obj\x86\Debug\GestLaboMach.Properties.Resources.resources
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\obj\x86\Debug\GestLaboMach.ResultatForm.resources
+C:\Users\Administrateur\Documents\GitHub\ASTM-client-server\GestLaboMach\obj\x86\Debug\GestLaboMach.csproj.GenerateResource.Cache
