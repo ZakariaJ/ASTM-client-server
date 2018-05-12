@@ -15,7 +15,7 @@ namespace GestLaboMach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ResultatForm());
+            Application.Run(new forms.MDIParentLabo());
 
         }
     }
