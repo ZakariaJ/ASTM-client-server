@@ -13,7 +13,7 @@ namespace GestLaboMach.labo.dao
     {
         GestLaboMach.databases.DB db = new GestLaboMach.databases.DB();
         
-        public DataTable ListByListIdDossierForListDossier(int _id_usr, ArrayList _listid_dossiers)
+        public DataTable ListByListIdDossierForListDossier( ArrayList _listid_dossiers)
         {
             string list_id_str = "(-1000";
             for (int i = 0; i < _listid_dossiers.Count; i++)
@@ -42,63 +42,44 @@ LEFT JOIN app_analyse_grp on app_analyse_grp.id=app_dossier_dt.id_analyse_grp
 			
 WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + " and app_dossier_dt.id_bilan = 0";
             string tableName = "app_dossier_dt";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
             return daTable;
         }
+           
+        //----------------------------------------------------------------------------
+        public DataTable ListByIdDossier(long _id ,string _code_analyse_grp)
+        {
 
            
 
-       
-
-        //----------------------------------------------------------------------------
-        public DataTable ListByIdDossier(long _id, int _id_usr)
-        {
             string req = @" 
 
-            SELECT 
-             case when ifnull(app_dossier_dt.id_analyse,0)>0 then app_analyse.code else  app_analyse_grp.code           
-           end as code_analyse, 
-           case when ifnull(app_dossier_dt.id_analyse,0)>0 then app_analyse.libelle else  app_analyse_grp.libelle           
-           end as libelle_analyse,       
-           
-        ( SELECT  count(dtxxx.resultat) FROM app_dossier_dt dtxxx 
-                        WHERE dtxxx.id_dossier=app_dossier_dt.id_dossier
-                        AND dtxxx.id_analyse_grp =app_dossier_dt.id_analyse_grp
-                        AND ifnull(dtxxx.id_analyse,0)>0
-                        AND TRIM(  CONCAT(ifnull(dtxxx.resultat,''),ifnull(dtxxx.resultat_n,''))  )=''  )                        
-                       
-           as resultatGrpSaisie ,	   
+            SELECT app_dossier_dt.id as id_dossier_dt ,
+
+           app_analyse.code as code_analyse, 
+           app_analyse.libelle as libelle_analyse,      
 		 
-         TRIM(  CONCAT(ifnull(app_dossier_dt.resultat,''),ifnull(app_dossier_dt.resultat_n,''))  ) as resultatTest,
-         
-           
-            app_dossier_dt.* ,app_analyse.*, 
-		app_analyse_grp.code as code_grp,
-	     app_analyse_grp.libelle as libelle_grp,
-      	app_analyse_ssgrp.code as code_ssgrp,
-     	app_analyse_ssgrp.libelle as libelle_ssgrp,
-	   app_discipline.code as code_discipline,
-	  app_discipline.libelle as libelle_discipline
+           TRIM(  CONCAT(ifnull(app_dossier_dt.resultat,''), ifnull(app_dossier_dt.resultat_n,''))  ) as resultat        
 			
 			FROM app_dossier_dt  
-			LEFT JOIN app_analyse ON app_analyse.id = app_dossier_dt.id_analyse			
-			LEFT JOIN app_analyse_grp on app_analyse_grp.id=app_dossier_dt.id_analyse_grp
-			LEFT JOIN app_analyse_ssgrp on app_analyse_ssgrp.id=app_analyse.id_analyse_ssgrp
-			LEFT JOIN app_discipline on app_discipline.id=app_analyse.id_discipline			
-			
-			WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier = " + _id + " and app_dossier_dt.id_bilan = 0 ";
+			LEFT JOIN app_analyse ON app_analyse.id = app_dossier_dt.id_analyse	
+            LEFT JOIN app_analyse_grp on app_analyse_grp.id=app_analyse.id_analyse_grp
+			LEFT JOIN app_analyse_ssgrp on app_analyse_ssgrp.id=app_analyse.id_analyse_ssgrp		
+						
+			WHERE IFNULL(is_analyse,0)=0 
+            AND  app_analyse_grp.code = @code_analyse_grp
+            AND  app_dossier_dt.id_dossier = " + _id + "  ";
 
             string tableName = "app_dossier_dt";
-
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            Dictionary<int, DBParametre> list_params = new Dictionary<int, DBParametre>();
+            list_params.Add(1, new DBParametre("@code_analyse_grp", _code_analyse_grp));           
+            DataTable daTable = db.getResults(req, tableName, list_params);
             return daTable;
         }
 
 
-        public DataTable ListByIdDossierRslt(long _id, int _id_usr)
+        public DataTable ListByIdDossierRslt(long _id)
         {
-
-
 
             string req = @" 
 			
@@ -159,19 +140,19 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
 			WHERE    IFNULL(app_dossier_dt.id_analyse,0)>0 and app_dossier_dt.id_dossier = " + _id + " ";
             
             string tableName = "app_dossier_dt";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
             return daTable;
         }
           
    
 
-        public DataTable FindById_ForInsertOrUpdate(long _id, int _id_usr)
+        public DataTable FindById_ForInsertOrUpdate(long _id)
         {
 
 
             string req = " SELECT * FROM app_dossier_dt WHERE id = " + _id;
             string tableName = "app_dossier_dt";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
 
             return daTable;
         }
@@ -185,14 +166,14 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
                     FROM app_dossier_dt WHERE id = " + _id;
 
             string tableName = "app_dossier_dt";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
 
             return daTable;
         }
 
         // ---------------------------------------------------------------------
 
-        public DataTable FindByIdDossier(long _idd, int _id_usr)
+        public DataTable FindByIdDossier(long _idd)
         {
 
             string req = @" SELECT  app_dossier_dt.id as idd_dt, 
@@ -241,29 +222,29 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
 			WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier = " + _idd + " and app_dossier_dt.id_bilan = 0 ";
 
             string tableName = "app_dossier_dt";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
 
             return daTable;
         }
                    
 
 
-        public ActionModele UpdateForm(long _id, DataTable _daTable, int _id_usr)
+        public ActionModele UpdateForm(long _id, DataTable _daTable)
         {
             string tableName = "app_dossier_dt";
-            ActionModele actionn = db.update(_id, _daTable, tableName, _id_usr);
+            ActionModele actionn = db.update(_id, _daTable, tableName);
             return actionn;
 
         }
 
-        public string DeleteRow(long _id, int _id_usr)
+        public string DeleteRow(long _id)
         {
             string req = @" 
             DELETE FROM app_dossier_dt WHERE id =" + _id + @" 
             and id not in ( SELECT distinct id_civilite FROM app_patient WHERE id_civilite=" + _id + @"  ) 
              ";
             string tableName = "app_dossier_dt";
-            string test = db.delete(req, tableName, _id_usr);
+            string test = db.delete(req, tableName);
             return test;
 
         }
@@ -273,12 +254,12 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
              
         //-----------------------------------------
 
-        public decimal calcResult(long _id_dossier, int _id_analyse, int _id_usr)
+        public decimal calcResult(long _id_dossier, int _id_analyse)
         {
             string formule = "";
             string code_formule = "";
             int calculable = 0;
-            DataTable daTable_listResult = this.ListByIdDossierRslt(_id_dossier, _id_usr);
+            DataTable daTable_listResult = this.ListByIdDossierRslt(_id_dossier);
 
             if (daTable_listResult != null && daTable_listResult.Rows.Count > 0)
             {
@@ -370,7 +351,7 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
                 try
                 {
                     string tableName = "app_dossier_dt";
-                    DataTable daTablexx = db.getResults(req, tableName, _id_usr);
+                    DataTable daTablexx = db.getResults(req, tableName);
                     // 
                     if (daTablexx != null && daTablexx.Rows.Count > 0)
                     {
@@ -384,7 +365,7 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
                             // labo.modele.SYS_LOG_Modele.tracerException(ex);
                         }
                         db.executeNonQuery(" UPDATE app_dossier_dt SET resultat_n=$resltCalc WHERE id_dossier = "
-                            + _id_dossier + " and id_analyse = " + _id_analyse, _id_usr);
+                            + _id_dossier + " and id_analyse = " + _id_analyse);
 
                     }
                 }
@@ -399,14 +380,14 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
 
         //###############################################################################
         
-        public string UpdateResultatDossier(int ida, long idd, string resultat, int _id_usr)
+        public string UpdateResultatDossier(int ida, long idd, string resultat)
         {
             string test = "";
 
             {
                 string req1 = @" UPDATE app_dossier_dt
 						SET resultat = @resultat ,
-						id_usr_mod =  " + _id_usr + @" ,
+						id_usr_mod =  " + GestLaboGlobal.id_usr + @" ,
 						dt_mod = @dt_mod
 						WHERE id_analyse =" + ida + @"
 						AND id_dossier =" + idd + " ";
@@ -415,7 +396,7 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
                 list_params.Add(1, new DBParametre("@resultat", resultat));
                 list_params.Add(2, new DBParametre("@dt_mod", Outils.Fonctions_Date.getDateTime_NOW_Maroc()));
                 string tableName = "app_dossier_dt";
-                test = db.executeNonQuery(req1, list_params, _id_usr);
+                test = db.executeNonQuery(req1, list_params);
             }
 
             {
@@ -440,14 +421,14 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
 
 
         // -----------------------------------------------------------------
-        public string UpdateNote(int ida, long idd, string notes, int _id_usr)
+        public string UpdateNote(int ida, long idd, string notes)
         {
 
             string test = "";
 
             string req = @"  UPDATE app_dossier_dt
 						SET notes =  @notes ,
-						id_usr_mod =  " + _id_usr + @" ,
+						id_usr_mod =  " + GestLaboGlobal.id_usr + @" ,
 						dt_mod =  @dt_mod
 						WHERE id_analyse = @ida
 						AND id_dossier = @idd ";
@@ -459,20 +440,20 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
             list_params.Add(3, new DBParametre("@notes", notes));
             list_params.Add(4, new DBParametre("@dt_mod", Outils.Fonctions_Date.getDateTime_NOW_Maroc()));
             string tableName = "app_dossier_dt";
-            test = db.executeNonQuery(req, list_params, _id_usr);
+            test = db.executeNonQuery(req, list_params);
 
             return test;
         }
 
         // -----------------------------------------------------------------
-        public string UpdateResultatDossierNum(int ida, long idd, decimal resultat_n, int _id_usr, string symbole)
+        public string UpdateResultatDossierNum(int ida, long idd, decimal resultat_n, string symbole)
         {
             string test = "";
             {
                 string req = @" UPDATE app_dossier_dt
 						SET resultat_n = @resultat_n ,
                         symbole = @symbole ,
-						id_usr_mod = " + _id_usr + @" ,
+						id_usr_mod = " + GestLaboGlobal.id_usr + @" ,
 						dt_mod =  @dt_mod
 						WHERE id_analyse = @ida
 						AND id_dossier = @idd ";
@@ -484,7 +465,7 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
                 list_params.Add(4, new DBParametre("@symbole", symbole));
                 list_params.Add(5, new DBParametre("@dt_mod", Outils.Fonctions_Date.getDateTime_NOW_Maroc()));
                 string tableName = "app_dossier_dt";
-                test = db.executeNonQuery(req, list_params, _id_usr);
+                test = db.executeNonQuery(req, list_params);
 
             }
 
@@ -503,7 +484,7 @@ WHERE IFNULL(is_analyse,0)=1 and app_dossier_dt.id_dossier IN " + list_id_str + 
                 list_params.Add(4, new DBParametre("@symbole", symbole));
                 list_params.Add(5, new DBParametre("@dt_mod", Outils.Fonctions_Date.getDateTime_NOW_Maroc()));
                 string tableName = "app_dossier_dt";
-                test = db.executeNonQuery(req, list_params, _id_usr);
+                test = db.executeNonQuery(req, list_params);
 
             }
 

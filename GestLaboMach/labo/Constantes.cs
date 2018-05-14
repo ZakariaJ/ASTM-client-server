@@ -10,6 +10,13 @@ namespace GestLaboMach
     public class Constantes
     {
 
+        // default parmetres Yumizen H500 ###########################################
+        public static int id_machine_yumizenH500 = 100; 
+
+        // ###################################################################
+
+        //-------------------------------------------------------
+
         public static string app_base_url_asp = "";
         public static string dossierSauvPicesJointesDossiers = "uploads";
 
@@ -19,8 +26,7 @@ namespace GestLaboMach
         public static int app_dossier_accueil_statut = 1;
         public static int app_dossier_sais_rslt_statut = 2;
         public static int app_dossier_valid_doss_statut = 3;
-        
-            
+                  
                   
 
         // types de données

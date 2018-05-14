@@ -21,7 +21,7 @@ namespace GestLaboMach.databases
 
 
 
-        public  DataTable getResults(string _reqSelect, string _tableName, int _id_usr)
+        public  DataTable getResults(string _reqSelect, string _tableName)
         {
 
             DataSet daSet1 = new DataSet();
@@ -58,7 +58,7 @@ namespace GestLaboMach.databases
 
         }
 
-        public DataTable getResults(string _reqSelect, string _tableName, Dictionary<int, DBParametre> _list_params, int _id_usr)
+        public DataTable getResults(string _reqSelect, string _tableName, Dictionary<int, DBParametre> _list_params)
         {
 
             DataSet daSet1 = new DataSet();
@@ -100,7 +100,7 @@ namespace GestLaboMach.databases
 
         }
 
-        public  DataSet getResults_DataSet(string _reqSelect, string _tableName,int _id_usr)
+        public  DataSet getResults_DataSet(string _reqSelect, string _tableName)
         {
 
             DataSet daSet1 = new DataSet();
@@ -203,7 +203,7 @@ namespace GestLaboMach.databases
 
 
 
-        public ActionModele update(long _ident, DataTable _dataTable, string _tableName, int _id_usr)
+        public ActionModele update(long _ident, DataTable _dataTable, string _tableName)
         {
             string test = "";
             
@@ -232,7 +232,7 @@ namespace GestLaboMach.databases
 
                 for (int ln = 0; ln < _dataTable.Rows.Count; ln++)
                 {
-                    _dataTable.Rows[ln]["id_usr_mod"] = _id_usr;
+                    _dataTable.Rows[ln]["id_usr_mod"] = GestLaboGlobal.id_usr;
                     _dataTable.Rows[ln]["dt_mod"] = DateTime.Now;
                    
                     MySqlCommand cmd = new MySqlCommand();                    
@@ -302,7 +302,7 @@ namespace GestLaboMach.databases
         //#################################################################################################
         //#################################################################################################
         //#################################################################################################
-        public ActionModele insert(DataTable _dataTable, string _tableName, int _id_usr)
+        public ActionModele insert(DataTable _dataTable, string _tableName)
         {
             string test = "";
 
@@ -334,7 +334,7 @@ namespace GestLaboMach.databases
                 for (int ln = 0; ln < _dataTable.Rows.Count; ln++)
                 {
 
-                    _dataTable.Rows[ln]["id_usr_cre"] = _id_usr;
+                    _dataTable.Rows[ln]["id_usr_cre"] = GestLaboGlobal.id_usr;
                     _dataTable.Rows[ln]["dt_cre"] = DateTime.Now;
 
                     MySqlCommand cmd = new MySqlCommand();
@@ -409,7 +409,7 @@ namespace GestLaboMach.databases
         //#################################################################################################
 
 
-        public  string delete(string _reqDelete, string _tableName, int _id_usr)
+        public  string delete(string _reqDelete, string _tableName)
         {
             string test = "";
             int nbrLigneDeleted = 0;
@@ -419,7 +419,7 @@ namespace GestLaboMach.databases
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(_reqDelete, con);
                 //cmd.Parameters.AddWithValue("@ident", _ident);             
-                cmd.Parameters.AddWithValue("@id_usr", _id_usr);
+                cmd.Parameters.AddWithValue("@id_usr", GestLaboGlobal.id_usr);
 
                nbrLigneDeleted = cmd.ExecuteNonQuery();
 
@@ -452,7 +452,7 @@ namespace GestLaboMach.databases
         }
 
         // ##################################################################################""
-        public  string delete(long _ident, string _tableName, int _id_usr)
+        public  string delete(long _ident, string _tableName)
         {
             string test = "";
             int nbrLigneDeleted = 0;
@@ -467,7 +467,7 @@ namespace GestLaboMach.databases
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(cmdDeleteCommand, con);
                 cmd.Parameters.AddWithValue("@ident", _ident);
-                cmd.Parameters.AddWithValue("@id_usr", _id_usr);
+                cmd.Parameters.AddWithValue("@id_usr", GestLaboGlobal.id_usr);
 
                nbrLigneDeleted = cmd.ExecuteNonQuery();
 
@@ -500,7 +500,7 @@ namespace GestLaboMach.databases
             return test;
         }
 
-        public string delete(string _reqDelete, string _tableName, Dictionary<int, DBParametre> _list_params, int _id_usr)
+        public string delete(string _reqDelete, string _tableName, Dictionary<int, DBParametre> _list_params)
         {
             string test = "";
 
@@ -554,7 +554,7 @@ namespace GestLaboMach.databases
         // ####################################################################################"""
 
 
-        public int getLas_id_Inserted(long _numberAleatoire, int _id_usr)
+        public int getLas_id_Inserted(long _numberAleatoire)
         {
 
             DataSet daSet1 = new DataSet();
@@ -611,7 +611,7 @@ namespace GestLaboMach.databases
 
 
 
-        public string executeNonQuery(string _req, Dictionary<int, DBParametre> _list_params, int _id_usr)
+        public string executeNonQuery(string _req, Dictionary<int, DBParametre> _list_params)
         {
             string test = "";          
 
@@ -656,7 +656,7 @@ namespace GestLaboMach.databases
         }
 
 
-        public  string executeNonQuery(string _req, int _id_usr)
+        public  string executeNonQuery(string _req)
         {
             string test = "";
 

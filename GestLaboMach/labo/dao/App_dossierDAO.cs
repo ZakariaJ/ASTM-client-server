@@ -20,31 +20,32 @@ namespace GestLaboMach.labo.dao
 
             
 
-            string req = @" SELECT 
-                CONCAT( IFNULL(p.num_patient,''),' - ',IFNULL(p.nom,''),' ' , IFNULL(p.prenom,'') ) as patient , 
-                
-             d.num_dossier 
-          FROM app_dossier d  
-           LEFT JOIN app_patient p ON d.id_patient = p.id 
-           WHERE d.statut=" + _statut_mach  + @"
-            ORDER BY  d.urgence DESC, d.date_accueil , d.id  " ;
-            string tableName = "app_dossier";
+string req = @" SELECT d.id as id_dossier,
+d.num_dossier,
+CONCAT( IFNULL(p.num_patient,''),' - ',IFNULL(p.nom,''),' ' , IFNULL(p.prenom,'') ) as patient 
+              
+              
+FROM app_dossier d  
+LEFT JOIN app_patient p ON d.id_patient = p.id 
+WHERE d.statut=" + _statut_mach  + @"
+ORDER BY  d.urgence DESC, d.date_accueil , d.id  " ;
+string tableName = "app_dossier";
             
             
-            DataTable daTable = db.getResults(req, tableName, 0);
+            DataTable daTable = db.getResults(req, tableName);
 
      
             return daTable;
         }
 
-        public long getNbrLignes_For_List_DataTable(int _statut, int _id_usr)
+        public long getNbrLignes_For_List_DataTable(int _statut )
         {
 
             long nbr = 0;
             string req = " SELECT count(id) as nbr  FROM app_dossier "
                  + " WHERE app_dossier.statut=" + _statut + " ";
             string tableName = "app_dossier";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
 
             try
             {
@@ -60,19 +61,19 @@ namespace GestLaboMach.labo.dao
 
             
 
-        public DataTable ListAll(int _id_usr)
+        public DataTable ListAll()
         {
             string req = "SELECT * FROM app_dossier";
             string tableName = "app_dossier";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
             return daTable;
         }
 
-            public DataTable FindById_ForInsertOrUpdate(long _id, int _id_usr)
+            public DataTable FindById_ForInsertOrUpdate(long _id)
         {
             string req = " SELECT * FROM app_dossier WHERE id = " + _id;
             string tableName = "app_dossier";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
 
             return daTable;
         }
@@ -86,16 +87,16 @@ namespace GestLaboMach.labo.dao
                     FROM app_dossier WHERE id = " + _id;
 
             string tableName = "app_dossier";
-            DataTable daTable = db.getResults(req, tableName, _id_usr);
+            DataTable daTable = db.getResults(req, tableName);
 
             return daTable;
         }
 
   
-        public ActionModele UpdateForm(long _id, DataTable _daTable, int _id_usr)
+        public ActionModele UpdateForm(long _id, DataTable _daTable)
         {
             string tableName = "app_dossier";
-            ActionModele actionn = db.update(_id, _daTable, tableName, _id_usr);
+            ActionModele actionn = db.update(_id, _daTable, tableName);
             return actionn;
 
         }
